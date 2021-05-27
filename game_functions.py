@@ -47,4 +47,7 @@ def select_random(board):
 
 
 def is_board_full(board):
-    pass
+    if board.count(' ') > 1:
+        return True
+    else:
+        return False
