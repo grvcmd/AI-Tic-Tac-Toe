@@ -1,16 +1,27 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from game_functions import *
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print("Welcome to Tic Tac Toe!")
+    print_board()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    while not is_board_full(board):
+        # Check if computer has a winning line
+        if not(is_winner(board, 'O')):
+            player_move()
+            print_board()
+        else:
+            print("Sorry, O's won this time!")
+            break
+
+        # Check if player has a winning line
+        if not(is_winner(board, 'X')):
+            computer_move()
+            print_board()
+        else:
+            print("X's won this time! Good Job!")
+
+    if is_board_full(board):
+        print('Tie Game!')
+
+
