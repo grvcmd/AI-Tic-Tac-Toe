@@ -35,7 +35,21 @@ def is_winner(board, letter):
 
 
 def player_move():
-    pass
+    run = True
+    while run:
+        move = input("Select a position to place an 'X' (1-9)")
+        try:
+            move = int(move)
+            if 0 < move < 10:
+                if space_is_free(move):
+                    run = False
+                    insert_letter('X', move)
+                else:
+                    print("Sorry, this space is occupied!")
+            else:
+                print("Please choose a number within the range!")
+        except:
+            print("Please choose a number!")
 
 
 def computer_move():
