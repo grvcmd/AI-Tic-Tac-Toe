@@ -53,8 +53,16 @@ def player_move():
 
 
 def computer_move():
-    pass
+    possible_moves = [x for x, letter in enumerate(board) if letter == ' ' and x != 0]
+    move = 0
 
+    for letter in ['O', 'X']:
+        for i in possible_moves:
+            board_copy = board[:] # Make a copy of board
+            board_copy[i] = letter
+            if is_winner(board_copy, letter):
+                move = i
+                return move
 
 def select_random(board):
     pass
