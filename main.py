@@ -3,7 +3,7 @@ from game_functions import *
 
 if __name__ == '__main__':
     print("Welcome to Tic Tac Toe!")
-    print_board()
+    print_board(board)
 
     while not is_board_full(board):
         # Check if computer has a winning line
@@ -20,14 +20,15 @@ if __name__ == '__main__':
             if move == 0:
                 print("Tie Game!")
             else:
-                insert_letter("O", board)
+                insert_letter("O", move)
                 print(f"Computer placed an 'O' in position {move}")
-                print_board()
+                print_board(board)
         else:
             print("X's won this time! Good Job!")
             break
 
     if is_board_full(board):
         print('Tie Game!')
+
 
 
